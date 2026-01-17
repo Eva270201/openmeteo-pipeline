@@ -1,0 +1,14 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+*.log
+
+# Spark checkpoints
+checkpoints/
+spark-warehouse/
+
+# Secrets
+*.token
+*.key
