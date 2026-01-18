@@ -27,6 +27,12 @@ Ce projet implémente un pipeline de données distribué pour le traitement temp
 | Worker2 | 10.0.0.102 | 2 vCPU / 4GB | DataNode, Kafka Broker 2 |
 | Worker3 | 10.0.0.103 | 2 vCPU / 4GB | DataNode, Kafka Broker 3 |
 
+
+Master : esilv-mcscin5a1825-0106.westeurope.cloudapp.azure.com	10.0.0.110 (Eva Cohen cf vm_list.csv)
+Worker1 : esilv-mcscin5a1825-0107.westeurope.cloudapp.azure.com	10.0.0.111 (Eva Cohen cf vm_list.csv)
+Worker2 : esilv-mcscin5a1825-0098.westeurope.cloudapp.azure.com	10.0.0.102 (Maizane Ali Ahamada cf vm_list.csv)
+Worker3 : esilv-mcscin5a1825-0099.westeurope.cloudapp.azure.com	10.0.0.103 (Maizane Ali Ahamada cf vm_list.csv)
+
 ### Flux de Données
 ```
 API Open-Meteo → Producer Python → Kafka (3 brokers) → Spark Streaming → InfluxDB → Grafana
@@ -64,7 +70,9 @@ yarn node -list
 
 #### A. ZooKeeper (sur Worker1 UNIQUEMENT)
 ```bash
-ssh adm-mcsc@10.0.0.111
+Connexion au Master : 
+ssh adm-mcsc@esilv-mcscin5a1825-0106.westeurope.cloudapp.azure.com
+ssh worker1 (10.0.0.111)
 cd /opt/kafka
 ./bin/zookeeper-server-start.sh -daemon config/zookeeper.properties
 
@@ -78,12 +86,16 @@ jps | grep QuorumPeerMain
 ./bin/kafka-server-start.sh -daemon config/server.properties
 
 # Sur Worker2
-ssh adm-mcsc@10.0.0.102
+Connexion au Master : 
+ssh adm-mcsc@esilv-mcscin5a1825-0106.westeurope.cloudapp.azure.com
+ssh worker2 (10.0.0.102)
 cd /opt/kafka
 ./bin/kafka-server-start.sh -daemon config/server.properties
 
-# Sur Worker3  
-ssh adm-mcsc@10.0.0.103
+# Sur Worker3
+Connexion au Master :  
+ssh adm-mcsc@esilv-mcscin5a1825-0106.westeurope.cloudapp.azure.com
+ssh worker3 (10.0.0.103)
 cd /opt/kafka
 ./bin/kafka-server-start.sh -daemon config/server.properties
 ```
