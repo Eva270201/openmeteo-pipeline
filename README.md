@@ -20,18 +20,13 @@ Ce projet implémente un pipeline de données distribué pour le traitement temp
 ## 🏗️ Architecture Distribuée
 
 ### Configuration du Cluster (4 VMs Azure)
-| Node | IP | CPU/RAM | Services |
-|------|----|---------| ---------|
-| Master | 10.0.0.110 | 4 vCPU / 8GB | NameNode, ResourceManager, InfluxDB, Grafana |
-| Worker1 | 10.0.0.111 | 2 vCPU / 4GB | DataNode, Kafka Broker 1, ZooKeeper, Producer |
-| Worker2 | 10.0.0.102 | 2 vCPU / 4GB | DataNode, Kafka Broker 2 |
-| Worker3 | 10.0.0.103 | 2 vCPU / 4GB | DataNode, Kafka Broker 3 |
+| Node | Hostname | IP | CPU/RAM | Services |
+|------|----------|----|---------| ---------|
+| Master | esilv-mcscin5a1825-0106.westeurope.cloudapp.azure.com | 10.0.0.110 | 4 vCPU / 8GB | NameNode, ResourceManager, InfluxDB, Grafana |
+| Worker1 | esilv-mcscin5a1825-0107.westeurope.cloudapp.azure.com | 10.0.0.111 | 2 vCPU / 4GB | DataNode, Kafka Broker 1, ZooKeeper, Producer |
+| Worker2 | esilv-mcscin5a1825-0098.westeurope.cloudapp.azure.com | 10.0.0.102 | 2 vCPU / 4GB | DataNode, Kafka Broker 2 |
+| Worker3 | esilv-mcscin5a1825-0099.westeurope.cloudapp.azure.com | 10.0.0.103 | 2 vCPU / 4GB | DataNode, Kafka Broker 3 |
 
-
-Master : esilv-mcscin5a1825-0106.westeurope.cloudapp.azure.com	10.0.0.110 (Eva Cohen cf vm_list.csv)
-Worker1 : esilv-mcscin5a1825-0107.westeurope.cloudapp.azure.com	10.0.0.111 (Eva Cohen cf vm_list.csv)
-Worker2 : esilv-mcscin5a1825-0098.westeurope.cloudapp.azure.com	10.0.0.102 (Maizane Ali Ahamada cf vm_list.csv)
-Worker3 : esilv-mcscin5a1825-0099.westeurope.cloudapp.azure.com	10.0.0.103 (Maizane Ali Ahamada cf vm_list.csv)
 
 ### Flux de Données
 ```
