@@ -242,7 +242,7 @@ hdfs dfsadmin -report | head -10
 - Grafana : Logs dans le terminal
 
 ## 🎥 Démonstration Vidéo
-[Lien YouTube de la démonstration complète](à-ajouter)
+https://youtu.be/2cJnyV0NCTE
 
 ## 📄 License
 MIT License - Voir fichier LICENSE
